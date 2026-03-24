@@ -7,10 +7,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
   }
 }
 
@@ -20,6 +17,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Two Buttons Layout"),
+        centerTitle: true, // small change
       ),
       body: Center(
         child: Container(
@@ -31,16 +29,28 @@ class HomeScreen extends StatelessWidget {
                 onPressed: () {
                   print("Login button pressed");
                 },
-                child: Text("Login"),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: Text("Login", style: TextStyle(fontSize: 16)),
               ),
 
-              SizedBox(width: 20), // Space between buttons
+              SizedBox(width: 20),
 
               ElevatedButton(
                 onPressed: () {
                   print("Register button pressed");
                 },
-                child: Text("Register"),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: Text("Register", style: TextStyle(fontSize: 16)),
               ),
             ],
           ),
